@@ -10,6 +10,7 @@ import { SportcomplexListComponent } from './sportcomplexes/sportcomplex-list/sp
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
 import { EventListComponent } from './events/event-list/event-list.component';
 import { EventItemComponent } from './events/event-list/event-item/event-item.component';
+import {SportcomplexItemComponent} from './sportcomplexes/sportcomplex-list/sportcomplex-item/sportcomplex-item.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { EventItemComponent } from './events/event-list/event-item/event-item.co
     EventsComponent,
     SportcomplexDetailComponent,
     SportcomplexListComponent,
+    SportcomplexItemComponent,
     EventDetailComponent,
     EventListComponent,
     EventItemComponent
