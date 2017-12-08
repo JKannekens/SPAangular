@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import {HeaderComponent} from './header/header.component';
@@ -11,24 +12,35 @@ import { EventDetailComponent } from './events/event-detail/event-detail.compone
 import { EventListComponent } from './events/event-list/event-list.component';
 import { EventItemComponent } from './events/event-list/event-item/event-item.component';
 import {SportcomplexItemComponent} from './sportcomplexes/sportcomplex-list/sportcomplex-item/sportcomplex-item.component';
+import {AppRoutingModule} from './app-routing.module';
+import { DropdownDirective } from './shared/dropdown.directive';
+import {SportcomplexService} from './sportcomplexes/sportcomplex.service';
+import {HttpModule} from '@angular/http';
+import {SportcomplexEditComponent} from './sportcomplexes/sportcomplex-edit/sportcomplex-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DropdownDirective,
     HeaderComponent,
     SportcomplexesComponent,
     EventsComponent,
     SportcomplexDetailComponent,
     SportcomplexListComponent,
     SportcomplexItemComponent,
+    SportcomplexEditComponent,
     EventDetailComponent,
     EventListComponent,
     EventItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [SportcomplexService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,1 +1,15 @@
-<app-sportcomplex-item></app-sportcomplex-item>
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewSportcomplex()">New Sportcomplex</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-sportcomplex-item
+      *ngFor="let sportcomplexL of sportcomplexes; let i = index"
+      [sportcomplex]="sportcomplexL"
+      [index]="i"></app-sportcomplex-item>
+  </div>
+</div>
+

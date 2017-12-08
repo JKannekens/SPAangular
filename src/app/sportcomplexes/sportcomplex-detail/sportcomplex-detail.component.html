@@ -1,3 +1,61 @@
-<p>
-  sportcomplex-detail works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <div
+      class="btn-group"
+      appDropdown>
+      <button
+        type="button"
+        class="btn btn-primary dropdown-toggle">
+        Manage Sportcomplex <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a style="cursor: pointer;" (click)="onEditSportcomplex()">Edit Sportcomplex</a></li>
+        <li><a style="cursor: pointer;" (click)="onDeleteSportcomplex()">Delete Sportcomplex</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<hr>
+<h4>Complex</h4>
+<table class="table table-bordered">
+  <tbody>
+  <tr>
+    <th>Complex Name</th>
+    <td>{{ sportcomplex?.name }}</td>
+  </tr>
+  <tr>
+    <th>Address</th>
+    <td>{{ sportcomplex?.address }}</td>
+  </tr>
+  <tr>
+    <th>Housenumber</th>
+    <td>{{ sportcomplex?.houseNumber }}</td>
+  </tr>
+  <tr>
+    <th>Postal Code</th>
+    <td>{{ sportcomplex?.postalCode }}</td>
+  </tr>
+  <tr>
+    <th>Email Address</th>
+    <td>{{ sportcomplex?.email }}</td>
+  </tr>
+  <tr>
+    <th>Phone Number</th>
+    <td>{{ sportcomplex?.phoneNumber }}</td>
+  </tr>
+  </tbody>
+</table>
+<h4>Halls</h4>
+<table class="table table-bordered">
+  <tbody>
+  <tr>
+    <th>Hall Name</th>
+    <td *ngFor="let hall of sportcomplex?.halls">{{ hall.name }}</td>
+  </tr>
+  <tr>
+    <th>Capacity</th>
+    <td *ngFor="let hall of sportcomplex?.halls">{{ hall.capacity }}</td>
+  </tr>
+  </tbody>
+</table>
+

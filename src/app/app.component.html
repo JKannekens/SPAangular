@@ -1,9 +1,18 @@
 <app-header></app-header>
 <div class="container">
+  <section style="padding-top:20px;">
+    <div class="row" style="padding-bottom:30px;">
+      <div class="col-md-12 text-center">
+        <h4>Single Page Application web development individueel</h4>
+        <p>Justin Kannekens, klas B <br> 2e jaars informatica</p>
+      </div>
+    </div>
+  </section>
+<div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-sportcomplexes></app-sportcomplexes>
-      <app-events></app-events>
+      <router-outlet></router-outlet>
     </div>
   </div>
+</div>
 </div>

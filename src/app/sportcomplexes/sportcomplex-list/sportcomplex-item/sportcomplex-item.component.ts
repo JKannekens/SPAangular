@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Sportcomplex} from '../../sportcomplex.model';
 
 @Component({
   selector: 'app-sportcomplex-item',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sportcomplex-item.component.css']
 })
 export class SportcomplexItemComponent implements OnInit {
-
-  constructor() { }
+  @Input() index: number;
+  @Input() sportcomplex: Sportcomplex;
 
   ngOnInit() {
   }

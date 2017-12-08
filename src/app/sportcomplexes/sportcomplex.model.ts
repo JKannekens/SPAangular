@@ -1,6 +1,7 @@
 import {Hall} from '../shared/hall.model';
 
 export class Sportcomplex {
+  public _id: string;
   public name: string;
   public address: string;
   public houseNumber: number;
@@ -9,14 +10,14 @@ export class Sportcomplex {
   public phoneNumber: string;
   public halls: Hall[];
 
-  constructor(name: string, address: string, houseNumber: number, postalCode: string, email: string, phoneNumber: string, halls: Hall[]) {
+  constructor(name: string, address: string, houseNumber: number, postalCode: string, email: string, phoneNumber: string) {
     this.name = name;
     this.address = address;
     this.houseNumber = houseNumber;
     this.postalCode = postalCode;
     this.email = email;
     this.phoneNumber = phoneNumber;
-    this.halls = halls;
+    // this.halls = halls;
   }
 }
 
