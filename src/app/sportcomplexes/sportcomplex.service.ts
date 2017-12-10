@@ -17,7 +17,7 @@ export class SportcomplexService {
   constructor(private http: Http) {}
 
   public getSportcomplexes(): Promise<Sportcomplex[]> {
-      console.log('recipes ophalen van server');
+      console.log('Sportcomplexes ophalen van server');
     return this.http.get(this.serverUrl, {headers: this.headers})
       .toPromise()
       .then(response => {

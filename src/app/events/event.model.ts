@@ -1,6 +1,7 @@
 import {Participant} from '../shared/participant.model';
 
 export class Event {
+  public _id: string;
   public organizerName: string;
   public eventName: string;
   public date: Date;

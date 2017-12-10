@@ -1,3 +1,61 @@
-<p>
-  event-detail works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <div
+      class="btn-group"
+      appDropdown>
+      <button
+        type="button"
+        class="btn btn-primary dropdown-toggle">
+        Manage Event <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a style="cursor: pointer;" (click)="onEditEvent()">Edit Event</a></li>
+        <li><a style="cursor: pointer;" (click)="onDeleteEvent()">Delete Event</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<hr>
+<h4>Event</h4>
+<table class="table table-bordered">
+  <tbody>
+  <tr>
+    <th>Event Name</th>
+    <td>{{ event?.eventName }}</td>
+  </tr>
+  <tr>
+    <th>Organizer Name</th>
+    <td>{{ event?.organizerName }}</td>
+  </tr>
+  <tr>
+    <th>Date</th>
+    <td>{{ event?.date }}</td>
+  </tr>
+  <tr>
+    <th>Sportcomplex Name</th>
+    <td>{{ event?.sportcomplexName }}</td>
+  </tr>
+  <tr>
+    <th>Sportcomplex Hall</th>
+    <td>{{ event?.sportcomplexHall }}</td>
+  </tr>
+  </tbody>
+</table>
+<h4>Participants</h4>
+<table class="table table-bordered">
+  <tbody>
+  <tr>
+    <th>Participant Name</th>
+    <td *ngFor="let participant of event?.participants">{{ participant.name }}</td>
+  </tr>
+  <tr>
+    <th>Participant Email</th>
+    <td *ngFor="let participant of event?.participants">{{ participant.email }}</td>
+  </tr>
+  <tr>
+    <th>Participant Phone Number</th>
+    <td *ngFor="let participant of event?.participants">{{ participant.phoneNumber }}</td>
+  </tr>
+  </tbody>
+</table>
+
