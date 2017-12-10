@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success" [disabled]="!eventForm.valid">Save</button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <hr>
+            <label for="organizerName">Organizer Name</label>
+            <input type="text" id="organizerName" formControlName="organizerName" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="eventName">Event Name</label>
+            <input type="text" id="eventName" formControlName="eventName" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="date">Event Date (dd/mm/y)</label>
+            <input type="text" id="date" formControlName="date" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="sportcomplexName">Sportcomplex Name</label>
+            <input type="text" id="sportcomplexName" formControlName="sportcomplexName" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="sportcomplexHall">Sportcomplex Hall</label>
+            <input type="text" id="sportcomplexHall" formControlName="sportcomplexHall" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12" formArrayName="participants">
+          <div class="row" *ngFor="let participantCtrl of eventForm['controls'].participants['controls']; let i = index" [formGroupName]="i"
+               style="margin-top: 10px;">
+            <pre *ngIf="participantCtrl">{{ participantCtrl.value | json }}</pre>
+            <div class="col-xs-3">
+              <input type="text" class="form-control" formControlName="name">
+            </div>
+            <div class="col-xs-4">
+              <input type="text" class="form-control" formControlName="email">
+            </div>
+            <div class="col-xs-3">
+              <input type="text" class="form-control" formControlName="phoneNumber">
+            </div>
+            <div class="col-xs-2">
+              <button type="button" class="btn btn-danger" (click)="onDeleteParticipant(i)">X</button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-success" (click)="onAddParticipant()">Add Participant</button>
+            </div>
+          </div>
+          <br/>
+          <br/>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

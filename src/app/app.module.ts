@@ -18,6 +18,7 @@ import {SportcomplexService} from './sportcomplexes/sportcomplex.service';
 import {HttpModule} from '@angular/http';
 import {SportcomplexEditComponent} from './sportcomplexes/sportcomplex-edit/sportcomplex-edit.component';
 import {EventService} from './events/event.service';
+import {EventEditComponent} from './events/event-edit/event-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {EventService} from './events/event.service';
     SportcomplexEditComponent,
     EventDetailComponent,
     EventListComponent,
+    EventEditComponent,
     EventItemComponent
   ],
   imports: [

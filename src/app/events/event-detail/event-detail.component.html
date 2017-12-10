@@ -17,6 +17,7 @@
 </div>
 <hr>
 <h4>Event</h4>
+
 <table class="table table-bordered">
   <tbody>
   <tr>
@@ -29,7 +30,7 @@
   </tr>
   <tr>
     <th>Date</th>
-    <td>{{ event?.date }}</td>
+    <td>{{ event?.date | date : "dd/MM/y" }}</td>
   </tr>
   <tr>
     <th>Sportcomplex Name</th>
@@ -58,4 +59,3 @@
   </tr>
   </tbody>
 </table>
-
