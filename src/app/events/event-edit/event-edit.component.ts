@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import {Subscription} from 'rxjs/Subscription';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import {EventService} from '../event.service';
+import {SportcomplexService} from '../../sportcomplexes/sportcomplex.service';
+import {Sportcomplex} from '../../sportcomplexes/sportcomplex.model';
 
 
 @Component({
@@ -9,13 +12,16 @@ import {EventService} from '../event.service';
   templateUrl: './event-edit.component.html',
 })
 export class EventEditComponent implements OnInit {
+  private subscription: Subscription;
   id: number;
   editMode = false;
   eventForm: FormGroup;
+  sportcomplexes: Sportcomplex[];
 
   constructor(private route: ActivatedRoute,
               private eventService: EventService,
-              private router: Router) {
+              private router: Router,
+              private sportcomplexSerivce: SportcomplexService) {
   }
 
   ngOnInit() {
@@ -25,6 +31,16 @@ export class EventEditComponent implements OnInit {
           this.id = +params['id'];
           this.editMode = params['id'] != null;
           this.initForm();
+        }
+      );
+
+    this.sportcomplexSerivce.getSportcomplexes()
+      .then(sportcomplexes => this.sportcomplexes = sportcomplexes)
+      .catch(error => console.log(error));
+    this.subscription = this.sportcomplexSerivce.sportcomplexesChanged
+      .subscribe(
+        (sportcomplexes: Sportcomplex[]) => {
+          this.sportcomplexes = sportcomplexes;
         }
       );
   }

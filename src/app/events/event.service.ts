@@ -4,6 +4,7 @@ import {Http} from '@angular/http';
 import {Headers} from '@angular/http';
 import {environment} from '../../environments/environment.prod';
 import {Event} from './event.model';
+import {Sportcomplex} from '../sportcomplexes/sportcomplex.model';
 
 @Injectable()
 export class EventService {
@@ -11,6 +12,7 @@ export class EventService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.serverUrl + '/events'; // URL to web api
   private events: Event[] = [];
+  private sportcomplexes: Sportcomplex[] = [];
 
   eventChanged = new Subject<Event[]>();
 
@@ -98,6 +100,24 @@ export class EventService {
       .catch(error => {
         return this.handleError(error);
       });
+  }
+
+  public getSportcomplexes(): Promise<Sportcomplex[]> {
+    console.log('Sportcomplexes ophalen van server');
+    return this.http.get(this.serverUrl, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.dir(response.json());
+        this.sportcomplexes = response.json() as Sportcomplex[];
+        return response.json() as Sportcomplex[];
+      })
+      .catch(error => {
+        return this.handleError(error);
+      });
+  }
+
+  getSportcomplex(index: number) {
+    return this.sportcomplexes[index];
   }
 
   private handleError(error: any): Promise<any> {
