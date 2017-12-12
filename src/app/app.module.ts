@@ -19,6 +19,11 @@ import {HttpModule} from '@angular/http';
 import {SportcomplexEditComponent} from './sportcomplexes/sportcomplex-edit/sportcomplex-edit.component';
 import {EventService} from './events/event.service';
 import {EventEditComponent} from './events/event-edit/event-edit.component';
+import { SportsComponent } from './sports/sports.component';
+import {SportsService} from './sports/sports.service';
+import {SportsListComponent} from './sports/sports-list/sports-list.component';
+import {SportsItemComponent} from './sports/sports-list/sports-item/sports-item.component';
+import {SportsEditComponent} from './sports/sports-list/sports-edit/sports-edit.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,11 @@ import {EventEditComponent} from './events/event-edit/event-edit.component';
     EventDetailComponent,
     EventListComponent,
     EventEditComponent,
-    EventItemComponent
+    EventItemComponent,
+    SportsComponent,
+    SportsListComponent,
+    SportsItemComponent,
+    SportsEditComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,7 @@ import {EventEditComponent} from './events/event-edit/event-edit.component';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [SportcomplexService, EventService],
+  providers: [SportcomplexService, EventService, SportsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

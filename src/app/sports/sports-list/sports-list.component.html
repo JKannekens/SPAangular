@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3>Add a new sport</h3>
+    <app-sports-edit></app-sports-edit>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-5">
+    <h3>Sports:</h3>
+    <app-sports-item
+      *ngFor="let sportL of sports; let i = index"
+      [sport]="sportL"
+      [index]="i"></app-sports-item>
+  </div>
+</div>
+
