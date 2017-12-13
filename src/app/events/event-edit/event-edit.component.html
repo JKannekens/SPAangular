@@ -35,7 +35,19 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label>Sportestnaam</label>
+            <label for="sport">Sport</label>
+            <select class="form-control" id="sport" formControlName="sport">
+              <option *ngFor="let sport of sports" value={{sport.name}}>
+                {{ sport.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label>Sportcomplex Name</label>
             <select class="form-control" id="sportcomplexName" formControlName="sportcomplexName">
               <option *ngFor="let complex of sportcomplexes" value={{complex.name}}>
                 {{ complex.name }}

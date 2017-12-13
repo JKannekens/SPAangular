@@ -30,7 +30,11 @@
   </tr>
   <tr>
     <th>Date</th>
-    <td>{{ event?.date | date : "dd/MM/y" }}</td>
+    <td>{{ event?.date }}</td>
+  </tr>
+  <tr>
+    <th>Sport</th>
+    <td>{{ event?.sport }}</td>
   </tr>
   <tr>
     <th>Sportcomplex Name</th>
@@ -44,18 +48,18 @@
 </table>
 <h4>Participants</h4>
 <table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+  </tr>
+  </thead>
   <tbody>
-  <tr>
-    <th>Participant Name</th>
-    <td *ngFor="let participant of event?.participants">{{ participant.name }}</td>
-  </tr>
-  <tr>
-    <th>Participant Email</th>
-    <td *ngFor="let participant of event?.participants">{{ participant.email }}</td>
-  </tr>
-  <tr>
-    <th>Participant Phone Number</th>
-    <td *ngFor="let participant of event?.participants">{{ participant.phoneNumber }}</td>
+  <tr *ngFor="let participant of event?.participants">
+    <th>{{ participant.name }}</th>
+    <th>{{ participant.email }}</th>
+    <th>{{ participant.phoneNumber }}</th>
   </tr>
   </tbody>
 </table>

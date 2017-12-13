@@ -5,6 +5,8 @@ import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import {EventService} from '../event.service';
 import {SportcomplexService} from '../../sportcomplexes/sportcomplex.service';
 import {Sportcomplex} from '../../sportcomplexes/sportcomplex.model';
+import {SportsService} from '../../sports/sports.service';
+import {Sport} from '../../shared/sports.model';
 
 
 @Component({
@@ -17,11 +19,13 @@ export class EventEditComponent implements OnInit {
   editMode = false;
   eventForm: FormGroup;
   sportcomplexes: Sportcomplex[];
+  sports: Sport[];
 
   constructor(private route: ActivatedRoute,
               private eventService: EventService,
               private router: Router,
-              private sportcomplexSerivce: SportcomplexService) {
+              private sportcomplexSerivce: SportcomplexService,
+              private sportService: SportsService) {
   }
 
   ngOnInit() {
@@ -31,6 +35,15 @@ export class EventEditComponent implements OnInit {
           this.id = +params['id'];
           this.editMode = params['id'] != null;
           this.initForm();
+        }
+      );
+    this.sportService.getSports()
+      .then(sports => this.sports = sports)
+      .catch(error => console.log(error));
+    this.subscription = this.sportService.sportsChanged
+      .subscribe(
+        (sports: Sport[]) => {
+          this.sports = sports;
         }
       );
 
@@ -75,7 +88,8 @@ export class EventEditComponent implements OnInit {
   private initForm() {
     let organizerName = '';
     let eventName = '';
-    let date: Date;
+    let date = '';
+    let sport = '';
     let sportcomplexName = '';
     let sportcomplexHall = '';
     let participants = new FormArray([]);
@@ -85,6 +99,7 @@ export class EventEditComponent implements OnInit {
       organizerName = event.organizerName;
       eventName = event.eventName;
       date = event.date;
+      sport = event.sport;
       sportcomplexName = event.sportcomplexName;
       sportcomplexHall = event.sportcomplexHall;
       if (event['participants']) {
@@ -104,6 +119,7 @@ export class EventEditComponent implements OnInit {
       'organizerName': new FormControl(organizerName, Validators.required),
       'eventName': new FormControl(eventName, Validators.required),
       'date': new FormControl(date, Validators.required),
+      'sport': new FormControl(sport, Validators.required),
       'sportcomplexName': new FormControl(sportcomplexName, Validators.required),
       'sportcomplexHall': new FormControl(sportcomplexHall, Validators.required),
       'participants': participants

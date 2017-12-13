@@ -21,9 +21,7 @@ import {EventService} from './events/event.service';
 import {EventEditComponent} from './events/event-edit/event-edit.component';
 import { SportsComponent } from './sports/sports.component';
 import {SportsService} from './sports/sports.service';
-import {SportsListComponent} from './sports/sports-list/sports-list.component';
-import {SportsItemComponent} from './sports/sports-list/sports-item/sports-item.component';
-import {SportsEditComponent} from './sports/sports-list/sports-edit/sports-edit.component';
+import {SportsEditComponent} from './sports/sports-edit/sports-edit.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +39,6 @@ import {SportsEditComponent} from './sports/sports-list/sports-edit/sports-edit.
     EventEditComponent,
     EventItemComponent,
     SportsComponent,
-    SportsListComponent,
-    SportsItemComponent,
     SportsEditComponent
   ],
   imports: [

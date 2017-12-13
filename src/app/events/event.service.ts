@@ -46,6 +46,7 @@ export class EventService {
         organizerName: event.organizerName,
         eventName: event.eventName,
         date: event.date,
+        sport: event.sport,
         sportcomplexName: event.sportcomplexName,
         sportcomplexHall: event.sportcomplexHall,
         participants: event.participants,
@@ -72,6 +73,7 @@ export class EventService {
       organizerName: newEvent.organizerName,
       eventName: newEvent.eventName,
       date: newEvent.date,
+      sport: newEvent.sport,
       sportcomplexName: newEvent.sportcomplexName,
       sportcomplexHall: newEvent.sportcomplexHall,
       participants: newEvent.participants,
@@ -100,24 +102,6 @@ export class EventService {
       .catch(error => {
         return this.handleError(error);
       });
-  }
-
-  public getSportcomplexes(): Promise<Sportcomplex[]> {
-    console.log('Sportcomplexes ophalen van server');
-    return this.http.get(this.serverUrl, {headers: this.headers})
-      .toPromise()
-      .then(response => {
-        console.dir(response.json());
-        this.sportcomplexes = response.json() as Sportcomplex[];
-        return response.json() as Sportcomplex[];
-      })
-      .catch(error => {
-        return this.handleError(error);
-      });
-  }
-
-  getSportcomplex(index: number) {
-    return this.sportcomplexes[index];
   }
 
   private handleError(error: any): Promise<any> {
