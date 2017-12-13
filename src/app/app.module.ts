@@ -19,7 +19,7 @@ import {HttpModule} from '@angular/http';
 import {SportcomplexEditComponent} from './sportcomplexes/sportcomplex-edit/sportcomplex-edit.component';
 import {EventService} from './events/event.service';
 import {EventEditComponent} from './events/event-edit/event-edit.component';
-import { SportsComponent } from './sports/sports.component';
+import {SportsComponent} from './sports/sports.component';
 import {SportsService} from './sports/sports.service';
 import {SportsEditComponent} from './sports/sports-edit/sports-edit.component';
 

@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-sports-edit></app-sports-edit>
+    <hr>
+    <h2>Sports:</h2>
+    <ul class="list-group">
+      <a
+        class="list-group-item list-group-item-info"
+        style="cursor: pointer"
+        *ngFor="let sport of sports; let i = index"
+        (click)="onEditSport(i)"
+      >
+        {{ sport?.name }}
+      </a>
+    </ul>
+  </div>
+</div>
