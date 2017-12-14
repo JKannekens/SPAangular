@@ -22,6 +22,8 @@ import {EventEditComponent} from './events/event-edit/event-edit.component';
 import {SportsComponent} from './sports/sports.component';
 import {SportsService} from './sports/sports.service';
 import {SportsEditComponent} from './sports/sports-edit/sports-edit.component';
+import {SportcomplexStartComponent} from './sportcomplexes/sportcomplex-start/sportcomplex-start.component';
+import {EventStartComponent} from './events/event-start/event-start.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import {SportsEditComponent} from './sports/sports-edit/sports-edit.component';
     EventEditComponent,
     EventItemComponent,
     SportsComponent,
+    SportcomplexStartComponent,
+    EventStartComponent,
     SportsEditComponent
   ],
   imports: [

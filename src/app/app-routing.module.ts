@@ -8,15 +8,19 @@ import {EventDetailComponent} from './events/event-detail/event-detail.component
 import {EventEditComponent} from './events/event-edit/event-edit.component';
 import {SportsComponent} from './sports/sports.component';
 import {SportsEditComponent} from './sports/sports-edit/sports-edit.component';
+import {SportcomplexStartComponent} from './sportcomplexes/sportcomplex-start/sportcomplex-start.component';
+import {EventStartComponent} from './events/event-start/event-start.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/sportcomplexes', pathMatch: 'full' },
   { path: 'sportcomplexes', component: SportcomplexesComponent, children: [
+    { path: '', component: SportcomplexStartComponent },
     { path: 'new', component: SportcomplexEditComponent },
     { path: ':id', component: SportcomplexDetailComponent },
     { path: ':id/edit', component: SportcomplexEditComponent },
   ] },
   { path: 'events', component: EventsComponent, children: [
+    { path: '', component: EventStartComponent },
     { path: 'new', component: EventEditComponent },
     { path: ':id', component: EventDetailComponent },
     { path: ':id/edit', component: EventEditComponent },
